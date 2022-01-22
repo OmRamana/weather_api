@@ -6,33 +6,8 @@ from .services import get_weather
 from .form import SearchForm
 
 
-def search(request):
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            s_query = form.cleaned_data['search_query']
-            return render(request, 'index.html', {'form': form, 's_query': s_query})
-    else:
-        form = SearchForm()
-
-    return render(request, 'index.html', {'form': form,})
-
-
-
-
-
-
-
      
-    
-    
 
-
-
-
-
-
-""" 
 class GetWeather(TemplateView):
     template_name = 'index.html'
     form_class = SearchForm
@@ -48,7 +23,7 @@ class GetWeather(TemplateView):
         if form.is_valid():
             s_query = form.cleaned_data['search_query']
             return render(request, self.template_name, {'form': form})
-        return render(request, self.template_name, {'form': form}) """
+        return render(request, self.template_name, {'form': form})
 
 
          
@@ -63,3 +38,16 @@ class GetWeather(TemplateView):
              'temp_max': data[3],
          }
          return context """
+
+
+""" 
+def search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            s_query = form.cleaned_data['search_query']
+            return render(request, 'index.html', {'form': form, 's_query': s_query})
+    else:
+        form = SearchForm()
+
+    return render(request, 'index.html', {'form': form,}) """
